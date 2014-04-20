@@ -1,0 +1,28 @@
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url(old-wall.jpg);
+    background-position: 0% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.2em 0.2em 0.2em;
+}
+.messages{
+}
+.red-text{
+	color: red;
+}
+.green-text {
+	color: green;	
+}
+.panel { 
+	margin-top: 10px; 
+}
+#signout-text {
+	font-weight: bold;
+}
+#username-text{
+	font-weight: bold;
+	color: black;
+	text-shadow: white 0.2em 0.2em 0.2em;
+}
