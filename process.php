@@ -30,24 +30,37 @@ function register_user($post)
 {
     //--------------- Begin validatin checks. ----------------//
     $_SESSION['errors'] = array();
+    // cannot be empty
     if(empty($post['first_name'])){
         $_SESSION['errors'][] = 'Firstname cannot be empty!';
     }
+    // Cannot be numeric
     if(is_numeric($post['first_name']) || is_numeric($post['first_name'])) {
     	$_SESSION['errors'][] = 'Name cannot be numeric!';
     }
+    // Cannot be empty
     if(empty($post['last_name'])){
         $_SESSION['errors'][] = 'Lastname cannot be empty!';
     }
+    // Cannot be empty
     if(empty($post['password'])){
         $_SESSION['errors'][] = 'Password cannot be empty!';
     }
+    // Password must be equal
     if($post['password'] != $post['confirm_password']){
         $_SESSION['errors'][] = 'Passwords do not match!';
     }
+    //Make sure email format is valid.
     if(! filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
         $_SESSION['errors'][] = 'Please use a valid email address!';
     }
+    //Make sure email address doesn't exist.
+    $check_unique_email_querry = "select email from users
+    								where email = '{$post['email']}'";
+	$check_email_result = fetch_record($check_unique_email_querry);
+	if($check_email_result['email'] == $post['email']){
+		$_SESSION['errors'][] = 'Email already exists.';
+	}
     //-------------- End of validation Checks! -----------------//
    	if(count($_SESSION['errors']) > 0)
   	{

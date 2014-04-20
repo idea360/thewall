@@ -20,15 +20,17 @@ session_start();
             <?php } 
         unset($_SESSION['errors']);
         }
-        if(isset($_SESSION['success_message'])){ ?>
-            <p class='green-text'> <?php $_SESSION['success_message'] ?> </p>
+        if(isset($_SESSION['success_message'])) { ?>
+            <p class='green-text'> <?= $_SESSION['success_message'] ?> </p>
         <?php unset($_SESSION['success_message']);
         } ?>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2>Register</h2></div>
+                    <div class="panel-heading">
+                    	<h2>Register</h2>
+                    </div>
                     <div class="panel-body">
                         <form action='process.php' method='post'>
                             <input type='hidden' name='action' value='register'>
@@ -55,7 +57,7 @@ session_start();
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> <!-- End Row -->
+    </div> <!-- End Container -->
 </body>
 </html>
