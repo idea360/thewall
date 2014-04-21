@@ -10,18 +10,24 @@ session_start();
     <link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript" src="bootstrap.css"></script>
     <script type="text/javascript" src="jq.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <title>Welcome!</title>
 </head>
 <body>
     <?php
         if(isset($_SESSION['errors'])){
             foreach($_SESSION['errors'] as $error){ ?>
-                <p class='red-text'> <?= $error ?> </p>
+            	<div class="alert alert-warning alert-dismissable">
+  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>	
+                	<strong>Error: </strong> <?= $error ?>
+                </div>
             <?php } 
         unset($_SESSION['errors']);
         }
         if(isset($_SESSION['success_message'])) { ?>
-            <p class='green-text'> <?= $_SESSION['success_message'] ?> </p>
+        	<div class="alert alert-success">
+  				<?= $_SESSION['success_message'] ?>
+			</div>
         <?php unset($_SESSION['success_message']);
         } ?>
     <div class="container">

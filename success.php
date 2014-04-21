@@ -23,11 +23,15 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript" src="bootstrap.css"></script>
     <script type="text/javascript" src="jq.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<?php 
 		if(isset($_SESSION['success_del'])){ ?>
-			<p class='green-text'> <?= $_SESSION['success_del'] ?> </p>
+			<div class="alert alert-warning alert-dismissable">
+  				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>	
+                <?= $_SESSION['success_del'] ?>
+            </div>
 	<?php 	unset($_SESSION['success_del']);
 	 	} ?>
     <div class='container'>

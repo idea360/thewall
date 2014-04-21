@@ -16,10 +16,10 @@
         post_reply_message($_POST);
     }
     elseif(isset($_POST['action']) && $_POST['action'] == 'del_message'){
-    	delete_message($_POST);
+        delete_message($_POST);
     }
     elseif(isset($_POST['action']) && $_POST['action'] == 'del_reply'){
-    	delete_comment($_POST);
+        delete_comment($_POST);
     }
     else{
         session_destroy();
@@ -36,7 +36,7 @@ function register_user($post)
     }
     // Cannot be numeric
     if(is_numeric($post['first_name']) || is_numeric($post['first_name'])) {
-    	$_SESSION['errors'][] = 'Name cannot be numeric!';
+        $_SESSION['errors'][] = 'Name cannot be numeric!';
     }
     // Cannot be empty
     if(empty($post['last_name'])){
